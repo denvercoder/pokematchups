@@ -1,8 +1,18 @@
+import {useState} from 'react'
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 
 export default function Home() {
+
+  
+
+  const [clicked, setClicked] = useState(true);
+
+  function handleClick() {
+    setClicked(!clicked)
+  }
+
   return (
     <div className={styles.container}>
       <Head>
@@ -12,9 +22,16 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <section>
-          <Image src="/matchups.png" alt="graph of strengths and weaknesses for my team" width="800" height="600" />
-        </section>
+        <h1>Click to swap between charts</h1>
+        {clicked ? (
+          <section>
+          <Image src="/matchups.png" alt="graph of strengths and weaknesses for my team" width="800" height="600" onClick={handleClick} />
+        </section>) : (
+          <section>
+          <Image src="/chart.png" alt="graph of strengths and weaknesses for my team" width="800" height="600" onClick={handleClick} />
+        </section>)
+}
+        
       </main>
 
       <footer className={styles.footer}>
