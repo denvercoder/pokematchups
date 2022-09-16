@@ -28,7 +28,7 @@ export default function Home() {
           <Image src="/matchups.png" alt="graph of strengths and weaknesses for my team" width="800" height="600" onClick={handleClick} />
         </section>) : (
           <section>
-          <Image src="/chart.png" alt="graph of strengths and weaknesses for my team" width="800" height="600" onClick={handleClick} />
+          <Image src="/ulchart.png" alt="graph of strengths and weaknesses for my team" width="800" height="600" onClick={handleClick} />
         </section>)
 }
         
