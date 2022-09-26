@@ -5,13 +5,8 @@ import styles from '../styles/Home.module.css'
 
 export default function Home() {
 
-  
-
   const [clicked, setClicked] = useState(true);
-
-  function handleClick() {
-    setClicked(!clicked)
-  }
+  const [image, setImage] = useState("/chart.png")
 
   return (
     <div className={styles.container}>
@@ -22,21 +17,22 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <h1>Click to swap between charts</h1>
-        {clicked ? (
+        <div className={styles.container}>
+          <button style={{padding: 12, margin: 12}} type="button" onClick={() => setImage('/glchart.png')}>Great League</button>
+          <button style={{padding: 12, margin: 12}} type="button" onClick={() => setImage('/ulchart.png')}>Ultra League</button>
+          <button style={{padding: 12, margin: 12}} type="button" onClick={() => setImage('/mlchart.png')}>Master League</button>
+          <button style={{padding: 12, margin: 12}} type="button" onClick={() => setImage('/chart.png')}>Types</button>
+        </div>
+        
           <section>
-          <Image src="/matchups.png" alt="graph of strengths and weaknesses for my team" width="800" height="600" onClick={handleClick} />
-        </section>) : (
-          <section>
-          <Image src="/ulchart.png" alt="graph of strengths and weaknesses for my team" width="800" height="600" onClick={handleClick} />
-        </section>)
-}
+          <Image src={image} alt="graph of strengths and weaknesses for my team" width="800" height="600" />
+        </section>
         
       </main>
 
       <footer className={styles.footer}>
         <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
+          href="https://twitter.com/denvercoder"
           target="_blank"
           rel="noopener noreferrer"
         >
